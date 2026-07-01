@@ -47,9 +47,9 @@ describe("Github page tests 2", () => {
   beforeEach(async () => {
     await page.goto("https://github.com/pricing");
   });
-  
+
   jest.setTimeout(60000);
-  
+
   test("The h1 header content'", async () => {
     jest.setTimeout(10000);
     const firstLink = await page.$(".btn-mktg.tmp-mt-4");
@@ -67,11 +67,11 @@ describe("Github page tests 2", () => {
 
   test("The page contains Start free for 30 days in button", async () => {
     jest.setTimeout(10000);
-    const btnSelector = (".btn-mktg.tmp-mt-4");
+    const btnSelector = ".btn-mktg.tmp-mt-4";
     await page.waitForSelector(btnSelector, {
       visible: true,
     });
-     const actual = await page.$eval(btnSelector, (link) => link.textContent);
-     expect(actual).toContain("Start free for 30 days");
+    const actual = await page.$eval(btnSelector, (link) => link.textContent);
+    expect(actual).toContain("Start free for 30 days");
   });
 });
